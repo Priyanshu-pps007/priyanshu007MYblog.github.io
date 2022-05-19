@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+<style>
+    #head{
+        height: 30%;
+        width: 100%;
+        margin-top:4%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+    #headone{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2em;
+        color: aquamarine;
+    }
+    #area{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #txt{
+        font-size: 1.8em;
+        border: solid rgb(4, 30, 31);
+    }
+    #pic{
+        margin-top: 1%;
+    }
+body{
+    background-image: url(/static/blog.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#btn{
+    position:relative;float:right;margin-right: 18%;margin-top: 1%; font-size: 1.3em;color: rgb(14, 14, 14);background-color: aquamarine ; border-radius: 8px;
+}
+#btn:hover{
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+#file{
+    font-size: 1.3em;
+    font-family: monospace;
+    color: aliceblue;
+    color: black;
+}
+#note{
+    margin-right: 0.8%;
+    position: relative;
+    float: right;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 6px;
+    background-color: rgb(4, 40, 31);
+}
+#out{
+    margin-right: 1%;
+    position: relative;
+    float: right;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 6px;
+    background-color: rgb(4, 40, 31);
+}
+#note:hover{
+    cursor: pointer;
+    color:black;
+    border-style: dashed;
+    background-color: aquamarine;
+}
+#out:hover{
+    cursor: pointer;
+    color:black;
+    border-style: dashed;
+    background-color: aquamarine;
+}
+</style>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    {% for msg in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    <div id="btns">
+   <a href="blog"> <button id="note">Your note</button> </a>
+  <a href="logout_view">  <button id="out">logout</button> </a>
+</div>
+    <div id="head">
+    <h1 id="headone">MYblog</h1>
+    
+</div>
+<form method="post" action="home" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+<div id="area" >
+<textarea rows="18" cols="75" id="txt" name="text" placeholder="Write here..." ></textarea>
+ 
+</div>
+<button id="btn">Submit</button>
+<!-- <div id="pic">
+    <img src="/static/photo.png" height="5%" width="5%" style="border: solid rgb(4, 30, 31);background-color: rgb(4, 30, 31);padding: 9px;">
+    
+</div> -->
+<!-- {{frm.photo}} -->
+<input type="file"  name="photo" id="file" accept=".doc, .docx, .pdf, .txt, .jpg, .png , .jfif">
+</form>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* GLOBAL STYLES */
+body {
+  /* background: #333; */
+  background-image: url(/static/blog.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  
+}
+#login{
+    padding-top: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    
+    margin:auto;
+    width: fit-content;
+    max-width: 640px;
+    /* max-width: 740px; */
+    /* height: fit-content; */
+    /* max-height:940px; */
+}
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  color: rgb(76, 230, 225);
+  font-size:250%;
+  background-color: rgb(2, 43, 33);
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+#frm{
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(4, 30, 31);
+    width:145%;
+    max-width: 740px;
+    border-radius: 12px;
+    animation-iteration-count: 1;
+    animation-name: frm;
+    animation-duration: 1s;
+    opacity: 90%;
+    /* animation-direction: reverse; */
+    /* opacity: 0; */
+    /* height: fit-content; */
+    /* max-height:940px; */
+    
+    /* margin-left: 9%; */
+}
+@keyframes frm {
+    0%{
+        opacity: 0;
+        height: 0%;
+    }
+    25%{
+        opacity: 10%;
+        height:30%;
+    }
+    50%{
+        opacity: 30%;
+        height: 50%;
+    }
+    75%{
+        opacity: 65%;
+        height: 75%;
+    }
+    100%{
+        opacity: 90%;
+        height:100%;
+    }
+}
+.lb{
+    margin-right: 1%;
+    color: white;
+    font-size: 1.5em;
+}
+.lb1{
+    margin-right: 1%;
+    color: white;
+    font-size: 1.5em;
+    margin-top: 5%;
+}
+#btn{
+    font-size: 1.1em;
+    font-family: sans-serif;
+
+}
+#btn:hover{
+    box-shadow: 0 2px 15px rgb(95, 239, 201) ;
+    background-color: black;
+    color: white;
+}
+#h4:hover{
+    /* box-shadow: 0px 2px 15px rgb(95, 239, 201) ; */
+    font-size: 1.1em;
+    text-decoration:underline;
+    
+}
+
+
+</style>
+<body>
+    
+    <span>
+        <div id="login">
+    <div class="typewriter">
+        <h1>Fill the form</h1>
+      </div>
+      <form method="post" action='signup' id="frm">
+          {% csrf_token %}
+          <h3 style="color:#fff;font-size: 2em;font-family: sans-serif;" >Signup</h3>
+          <label class="lb">Enter your Email</label>
+          <input type="email" name="email" id="email" placeholder="Email" style="margin-top:5%; width: 80% ; height: 15%;padding: 2.5%; border-radius: 5px;margin-left: 12% ;margin-right: 12%; " required="" >
+          <br>
+          <label class="lb1">Enter your Username</label>
+          <input type="text" name="username" id="uname" placeholder="Username" style="margin-top:5%; width: 80% ; height: 15%;padding: 2.5%; border-radius: 5px;margin-left: 12% ;margin-right: 12%; " required="" >
+          <br>
+          <label class="lb1">Enter your Password</label>
+          <input type="password" name="password" id="uname" placeholder="Password" style="margin-top:5%; width: 80% ; height: 15%;padding: 2.5%; border-radius: 5px;margin-left: 12% ;margin-right: 12%; " required="" >
+          <br>
+          <label class="lb1">Confirm Password</label>
+          <input type="password" name="confirm_password" id="uname" placeholder="Confirm password" style="margin-top:5%; width: 80% ; height: 15%;padding: 2.5%; border-radius: 5px;margin-left: 12% ;margin-right: 12%; " required="" >
+          <br>
+          <a href="#">
+          <button id="btn">
+              Submit
+            </button>
+        </a>
+            <h1></h1>
+      </form>
+    </div>
+</span>
+</body>
+</html>
